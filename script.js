@@ -68,6 +68,99 @@ function closePrivatePanel() {
 document.querySelector(".panel-close").addEventListener("click", closePrivatePanel);
 document.querySelector(".private-overlay").addEventListener("click", closePrivatePanel);
 
+const programGroups = [
+  {
+    category: "Leadership",
+    titles: [
+      "Future Leaders", "Student Council Academy", "Youth Leadership Lab",
+      "Confident Communicators", "Teamwork in Action", "Project Leadership",
+      "Peer Mentor Training", "Leading with Empathy", "Public Speaking Studio",
+      "Community Organizers"
+    ]
+  },
+  {
+    category: "Career",
+    titles: [
+      "Career Launch", "CV and Cover Letter Clinic", "Interview Ready",
+      "Career Exploration Week", "Professional Networking", "Workplace Skills",
+      "Internship Preparation", "Portfolio Builder", "Career Mentor Circles",
+      "Job Search Essentials"
+    ]
+  },
+  {
+    category: "Academic",
+    titles: [
+      "Study Skills Workshop", "Peer Tutoring Network", "Research Foundations",
+      "Academic Writing Studio", "Exam Preparation Bootcamp", "Critical Thinking Lab",
+      "Time Management for Students", "Presentation Skills", "Reading Strategies",
+      "Study Group Connect"
+    ]
+  },
+  {
+    category: "Technology",
+    titles: [
+      "Coding for Beginners", "Web Design Workshop", "Robotics Club",
+      "Mobile App Makers", "Digital Safety Basics", "Data Skills Starter",
+      "Creative AI Exploration", "Game Development Lab", "Tech Support Volunteers",
+      "Digital Design Studio"
+    ]
+  },
+  {
+    category: "Community",
+    titles: [
+      "Ideas Hub", "Neighborhood Action Project", "Community Welcome Team",
+      "Student Volunteer Days", "Intergenerational Connect", "Community Needs Mapping",
+      "Campus Kindness Campaign", "Local Partners Network", "Service Learning Lab",
+      "Community Celebration Day"
+    ]
+  },
+  {
+    category: "Wellbeing",
+    titles: [
+      "Mindful Moments", "Student Wellness Circle", "Healthy Habits Challenge",
+      "Stress Less Workshop", "First Aid Awareness", "Movement and Fitness Club",
+      "Nutrition for Students", "Building Resilience", "Peer Support Basics",
+      "Wellbeing Week"
+    ]
+  },
+  {
+    category: "Arts and Media",
+    titles: [
+      "Creative Arts Workshop", "Student Photography Walk", "Campus Film Makers",
+      "Music and Performance Lab", "Creative Writing Circle", "Podcast Production",
+      "Theater in Action", "Visual Storytelling Studio", "Student Newsroom",
+      "Cultural Showcase"
+    ]
+  },
+  {
+    category: "Environment",
+    titles: [
+      "Green Campus Project", "Community Garden Club", "Waste Less Challenge",
+      "Climate Action Workshop", "Tree Planting Days", "Sustainable Living Basics",
+      "Clean Neighborhood Campaign", "Water Wise Students", "Eco Innovation Lab",
+      "Biodiversity Explorers"
+    ]
+  },
+  {
+    category: "Entrepreneurship",
+    titles: [
+      "Student Startup Studio", "Business Ideas Bootcamp", "Social Enterprise Lab",
+      "Pitch Practice", "Small Business Basics", "Design Thinking Sprint",
+      "Financial Literacy for Founders", "Market Research Workshop",
+      "Innovation Challenge", "Young Entrepreneurs Network"
+    ]
+  },
+  {
+    category: "Culture and Language",
+    titles: [
+      "Language Exchange Circle", "Global Stories Forum", "Cultural Connections",
+      "Arabic Conversation Club", "English Practice Group", "International Student Welcome",
+      "Heritage and Identity Workshop", "World Traditions Festival",
+      "Cross-Cultural Communication", "Global Citizenship Series"
+    ]
+  }
+];
+
 const viewContent = {
   students: {
     title: "Student Details",
@@ -90,11 +183,9 @@ const viewContent = {
   programs: {
     title: "Programs",
     action: "+ Add Program",
-    rows: [
-      ["Future Leaders", "Leadership"],
-      ["Career Launch", "Career"],
-      ["Ideas Hub", "Innovation"]
-    ]
+    rows: programGroups.flatMap(({ category, titles }) =>
+      titles.map((title) => [title, category])
+    )
   },
   settings: {
     title: "Community Settings",
